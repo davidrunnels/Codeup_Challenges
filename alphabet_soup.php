@@ -9,7 +9,7 @@ function alphabet_soup($string) {
 		$word = explode(' ', $word);
 		$letters = str_split($word[0]);
 		natcasesort($letters);
-		$broth = implode(' ', $letters);
+		$broth = implode('', $letters);
 		$soup .= $broth . " ";
 		
 	}
