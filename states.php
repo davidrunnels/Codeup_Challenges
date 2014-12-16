@@ -26,8 +26,7 @@ function option($input)
 
 // function to open file
 
-function open()
-{
+function open(){
 
 	$filename = 'data/states.txt';
 	$handle = fopen($filename, "r");
@@ -42,8 +41,7 @@ function open()
 // function to the list_file state, capital and bird
 	//fopen, fread, fclose
 
-function list_file()
-{
+function list_file(){
 	$filename = 'data/states.txt';$handle = fopen($filename, "r");
 	$contents = fread($handle, filesize($filename));
 	fclose($handle);
@@ -54,24 +52,22 @@ function list_file()
 
 	// foreach
 
-	foreach($statesArray as $capitol => $v) 
-	{
-		$statesArray[$capitol] = explode("Q", $statesArray[$capitol]);
+	foreach($statesArray as $capital => $v) {
+		$statesArray[$capital] = explode("Q", $statesArray[$capital]);
 
-		foreach($statesArray[$capitol] as $bird => $vv) 
-		{
-			$statesArray[$capitol][$bird] = explode(" ", $statesArray[$capitol][$bird]);
+		foreach($statesArray[$capital] as $bird => $vv) {
+			return $statesArray[$capital][$bird] = explode(" ", $statesArray[$capital][$bird]);
 		}
+
+	print_r($statesArray, true);
 
 	}
 }
 
-	print_r($statesArray, true);
-
 // function to search for state, capital or bird
 
 	function search($list){
-		echo "(S)tate | (C)apitol | (B)ird : ";
+		echo "(S)tate | (C)apital | (B)ird : ";
 		$filter = get_input(TRUE);
 		$array = $list;
 
@@ -95,9 +91,9 @@ function list_file()
 			return $filtered_bird;
 			break;
 
-			default:
+			// default:
 			
-			break;
+			// break;
 		}
 
 	}
@@ -114,7 +110,7 @@ function list_file()
 
 // function to search capital by first letter
 
-	function filter_capitol($array, $var) {
+	function filter_capital($array, $var) {
 		foreach($array as $state){
 			$newstate = explode(", " , $state);
 			if(substr($newstate[1], 0, 1) == $var){
