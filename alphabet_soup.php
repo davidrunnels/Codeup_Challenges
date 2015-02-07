@@ -1,6 +1,5 @@
 <?php
 
-
 function alphabet_soup($string) {
 	$soup = '';
 	$word_array = explode(" ", $string);
@@ -10,8 +9,7 @@ function alphabet_soup($string) {
 		$letters = str_split($word[0]);
 		natcasesort($letters);
 		$broth = implode('', $letters);
-		$soup .= $broth . " ";
-		
+		$soup .= $broth . " ";	
 	}
 	return $soup;
 }

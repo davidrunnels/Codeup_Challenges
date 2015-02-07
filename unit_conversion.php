@@ -9,22 +9,22 @@ $measure = array(
     'pint' => array(96, 32, 16, 2, 1)
 );
 
-    // get input
     echo "Which unit of measure do you have?" . PHP_EOL . "(1)teaspoon, (2)tablespoon, (3)fluid ounce, (4)cup, (5)pint: ";
 
-    // Get the input from user
-    // Use trim() to remove whitespace and newlines
     $start = trim(fgets(STDIN));
-    
     
 if ($start == '1') {
     $unit1 = 'tsp';
+
 } elseif ($start == '2') {
     $unit1 = 'tbsp';
+
 } elseif ($start == '3') {
     $unit1 = 'oz';
+
 } elseif ($start == '4') {
     $unit1 = 'cup';
+    
 } elseif ($start == '5') {
     $unit1 = 'pint';
 }
@@ -39,36 +39,34 @@ if ($start == '1') {
 
     if ($convert_unit == '1') {
     $unit2 = $measure[$unit1][0];
+
 } elseif ($convert_unit == '2') {
     $unit2 = $measure[$unit1][1];
+
 } elseif ($convert_unit == '3') {
     $unit2 = $measure[$unit1][2];
+
 } elseif ($convert_unit == '4') {
     $unit2 = $measure[$unit1][3];
+
 } elseif ($convert_unit == '5') {
     $unit2 = $measure[$unit1][4];
 }
 
 if ($convert_id == '1') {
     $unit_id = 'tsp';
+
 } elseif ($convert_id == '2') {
     $unit_id = 'tbsp';
+
 } elseif ($convert_id == '3') {
     $unit_id = 'oz';
+
 } elseif ($convert_id == '4') {
     $unit_id = 'cup';
+
 } elseif ($convert_id == '5') {
     $unit_id = 'pint';
 }
     echo "Your " . $amount . " " . $unit1 . " converts to " . $unit2 * $amount . " " . $unit_id . PHP_EOL;
 
-// echo 'You have ' . $unit1 * $unit2 * $amount . 'units measured in ' . $unit2 . ".";
-
-// $starting_unit will search $measure $convert_unit will search for conversion
-// $convert_unit * $amount_of_starting_unit = $converted_amount
-
-// $query = "$string";
-
-// $result = array_search($string, $array);
-
-// echo $result;

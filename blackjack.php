@@ -15,9 +15,16 @@ function buildDeck($suits, $cards) {
 			$deck[] = $card . $suit;
 		}
 	}	
-	shuffle($deck);
+
+		$i = 1;
+		while ($a <= 7) {
+    	shuffle($deck);
+    	$i++;
+		}
+	
 	return $deck;
 } 
+
 // determine if a card is an ace
 // return true for ace, false for anything else
 function cardIsAce($card) {
@@ -34,18 +41,18 @@ function cardIsAce($card) {
 // face cards are worth 10
 // numeric cards are worth their value
 function getCardValue($card) {
-	$val = 0;
+	$value = 0;
 	switch ($card[0]) {
 		case 'A' :
-		$val = 11;
+		$value = 11;
 		break;
 		case 'J' :
 		case 'Q' :
 		case 'K' :
-		$val = 10;
+		$value = 10;
 		break;
 		default :
-		$val = $card[0];
+		$value = $card[0];
 		break;
 	}
 	return $val;
@@ -55,7 +62,20 @@ function getCardValue($card) {
 // don't forget to factor in aces
 // aces can be 1 or 11 (make them 1 if total value is over 21)
 function getHandTotal($hand) {
-  // todo
+  $total = 0;
+  $aceValue = 0;
+  foreach ($hand as $data) {
+    $value = getCardValue($data);
+    $total += $value;
+    if (cardIsAce($data)) {
+      $aceValue++;
+    }
+  }
+  while ($total > 21 && $aceValue > 0) {
+    $total -= 10;
+    $aceValue--;
+  }
+  return $total;
 }
 // draw a card from the deck into a hand
 // pass by reference (both hand and deck passed in are modified)
